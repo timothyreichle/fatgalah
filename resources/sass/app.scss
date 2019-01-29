@@ -13,9 +13,36 @@
 	top:0px;	
 	left:0px;
 	right:0px;
-	height:80px;
 	z-index: 99999;
 }
+
+.navbar > .navbar-brand{
+	height:100%;
+}
+
+.navbar > #topBar{
+	position: absolute;
+	height:20px;
+	right:0px;
+	top:0px;
+}
+
+
+.navbar > #searchBar{
+	position: absolute;
+	height:20px;
+	bottom:40px;
+	left:150px;
+}
+
+.navbar > #navbarNav{
+	position: absolute;
+	height:20px;
+	bottom:0px;
+	left:150px;
+}
+
+
 
 .content{
 	margin-top:80px;
