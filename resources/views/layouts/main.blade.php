@@ -64,6 +64,11 @@
                 margin-bottom: 30px;
             }
         </style>
+		
+		<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+		
+		@yield('script')
+		
     </head>
     <body>
 	

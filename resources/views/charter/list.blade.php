@@ -1,8 +1,10 @@
 {{$types->links()}}
 
 
-
+<div class ="view">
 @foreach($types as $type)
+
+	<a href="/charter?page={{$page}}&sort=price" class="ajaxlink">Sort by Price</a>
 
 	<div class="charter_type">{{$type->type_desc}}</div>
 	
@@ -14,8 +16,7 @@
 		
 		
 		
-		@foreach($classes[$resource->res_id] as $class)
-				
+		@foreach($classes[$resource->res_id] as $class)				
 			{{$class->class_name}} ${{$class->price}} {{$class->quantity}} <br/>
 		@endforeach
 		
@@ -26,5 +27,5 @@
 	
 
 @endforeach
-
+</div>
 {{$types->links()}}
