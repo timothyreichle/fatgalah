@@ -12,3 +12,10 @@
 */
 
 Route::get('/', 'HomeController@Index');
+
+
+Route::group(['prefix'=>'charter'],function(){
+
+	Route::get('/','CharterController@Index');
+
+});

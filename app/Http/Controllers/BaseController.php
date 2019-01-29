@@ -11,17 +11,17 @@ class BaseController extends Controller {
 
     public function __construct() {
 
-	   $navCategories = Category::OrderBy('SortOrder')->get();
+	   $navCategories = Category::OrderBy('Sort')->get();
 	   
 	   $subCategories = [];
 	   
-	   foreach (SubCategory::OrderBy('SortOrder')->get() as $subCategory){
+	   foreach (SubCategory::OrderBy('Sort')->get() as $subCategory){
 			$subCategories[$subCategory->CategoryID][] = $subCategory;
 	   }
 	   
 	   $items = [];
 	   
-	   foreach (Item::OrderBy('SortOrder')->get() as $item){
+	   foreach (Item::OrderBy('Sort')->get() as $item){
 			$items[$item->SubCategoryID][] = $item;
 	   }
 	
