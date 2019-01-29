@@ -20,14 +20,18 @@ class CharterController extends BaseController {
 
     public function Index(Request $request ){
 	
+		$sort = Input::get('sort');
 		
+		if($sort != "price"){
+			$sort = "";
+		}
+				
 		$types = Type::orderBy('sort','type_desc')->paginate(2);
 		
 		$resources = [];
 		$classes = [];
 		
 		foreach($types as $type){
-		
 		
 			$resources[$type->id] = Resources::Where('type_id',$type->id)->get();
 			
@@ -37,7 +41,7 @@ class CharterController extends BaseController {
 			
 				$classesDB = Classes::Where('res_id',$resId);
 				
-				if(Input::get('sort') == "price"){
+				if( $sort == "price"){
 					$classesDB->orderBy('price');
 				}
 			
@@ -46,7 +50,7 @@ class CharterController extends BaseController {
 			
 		}
 		
-		$variables = ['types'=>$types , 'resources'=>$resources, 'classes'=>$classes, 'page'=>Input::Get('page')];
+		$variables = ['types'=>$types , 'resources'=>$resources, 'classes'=>$classes, 'page'=>Input::Get('page'), 'sort'=>$sort];
 		
 		if ($request->ajax()) {
 			return view('charter.list', $variables);
@@ -55,9 +59,6 @@ class CharterController extends BaseController {
 		
 		return view('charter.index',$variables);
 		
-		/*print_r($types); exit;
-		
-		$classes = ::get();*/
 	
     }
 
